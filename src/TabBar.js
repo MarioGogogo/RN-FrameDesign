@@ -10,7 +10,8 @@ import {
 } from 'react-native'
 
 import TabNavigator from 'react-native-tab-navigator'
-import  Home from './Home'
+import  Home from '../src/components/Home'
+import  Category from '../src/components/Category'
 import Profile from './Profile'
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 
@@ -31,7 +32,7 @@ export default class MainPage extends Component {
             //设置选中的位置
             selected={this.state.selectedTab === 'AppStore'}
             //标题
-            title="AppStore"
+            title="主页"
             //标题样式
             titleStyle={styles.tabText}
             badgeText={''}
@@ -51,11 +52,11 @@ export default class MainPage extends Component {
             />}
             //点击Event
             onPress={() => this.setState({ selectedTab: 'AppStore' })}>
-            <Home/>
+            <Home />
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'Log'}
-            title="Log"
+            title="分类"
             badgeText={'2'}
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
@@ -70,11 +71,11 @@ export default class MainPage extends Component {
               color={'#f64720'}
             />}
             onPress={() => this.setState({ selectedTab: 'Log' })}>
-            <Profile/>
+            <Category/>
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'Device'}
-            title="Device"
+            title="购物车"
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
             renderIcon={() => <Icon
@@ -98,7 +99,7 @@ export default class MainPage extends Component {
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
             renderIcon={() => <Icon
-              name="ios-person"
+              name="我的"
               size={30}   //图片大小
               color={'#6792ff'}
             />}
