@@ -4,9 +4,6 @@ import {Actions, Scene, Router} from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import {getAxios,postAxios} from '../src/util/request'
 
-
-
-
 import { inject, observer } from 'mobx-react';
 
 @inject('loginStore')
@@ -39,10 +36,9 @@ export default class Login extends Component{
    }else{
        console.log('错误了')
      }
-
   }
 
-   componentWillUnmount(): void {
+   componentWillUnmount() {
     console.log('组件卸载了')
    }
 

@@ -19,7 +19,7 @@ const imageSources = [
     require('../../img/i3.png')
   ];
 
-export default class Cart extends Component {
+export default class HomeScreen extends Component {
   // 默认值设置
   static defaultProps = {};
   // 初始化state

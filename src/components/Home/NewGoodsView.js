@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-
+import {Actions, Scene, Router} from 'react-native-router-flux'
 import NewGoodsItem from './NewGoodsItem';
 import { width } from '../../common/screen';
 
@@ -8,7 +8,7 @@ const NewGoodsView = ({ itemDatas, navigation }) => (
   <View style={styles.container}>
     {itemDatas.map((value, index) => (
       <NewGoodsItem
-        onPress={() => navigation.navigate('ItemDetail', { value })}
+        onPress={() => Actions.furitDetail({ value })}
         name={value.name}
         price={value.price}
         image={value.image}

@@ -12,8 +12,14 @@ import {
 import TabNavigator from 'react-native-tab-navigator'
 import  Home from '../src/components/Home'
 import  Category from '../src/components/Category'
+import  Order from '../src/components/Order'
+import Mine from '../src/components/Mine'
 import Profile from './Profile'
 import Icon from 'react-native-vector-icons/dist/Ionicons';
+import Theme from './common/theme'
+
+const color = Theme.color
+
 
 export default class MainPage extends Component {
 
@@ -48,7 +54,7 @@ export default class MainPage extends Component {
             renderSelectedIcon={() => <Icon
               name="ios-home"
               size={30}   //图片大小
-              color={'#f64720'}
+              color= {"#AB956D"}
             />}
             //点击Event
             onPress={() => this.setState({ selectedTab: 'AppStore' })}>
@@ -68,7 +74,7 @@ export default class MainPage extends Component {
             renderSelectedIcon={() => <Icon
               name="ios-albums"
               size={30}   //图片大小
-              color={'#f64720'}
+              color= {"#AB956D"}
             />}
             onPress={() => this.setState({ selectedTab: 'Log' })}>
             <Category/>
@@ -86,12 +92,10 @@ export default class MainPage extends Component {
             renderSelectedIcon={() => <Icon
               name="ios-heart"
               size={30}   //图片大小
-              color={'#f64720'}
+              color= {"#AB956D"}
             />}
             onPress={() => this.setState({ selectedTab: 'Device' })}>
-            <View style={styles.page1}>
-              <Text style={{fontSize:18,padding:15,color: '#fff'}}>This is Device Page</Text>
-            </View>
+            <Order/>
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'User'}
@@ -106,12 +110,10 @@ export default class MainPage extends Component {
             renderSelectedIcon={() => <Icon
               name="ios-person"
               size={30}   //图片大小
-              color={'#f64720'}
+              color= {"#AB956D"}
             />}
             onPress={() => this.setState({ selectedTab: 'User' })}>
-            <View style={styles.page1}>
-              <Text style={{fontSize:18,padding:15,color: '#fff'}}>This is User Page</Text>
-            </View>
+            <Mine/>
           </TabNavigator.Item>
         </TabNavigator>
       </SafeAreaView>
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
   selectedTabText: {
     marginTop:-3,
     fontSize: 10,
-    color: 'red'
+    color: Theme.color
   },
   icon: {
     width: 22,

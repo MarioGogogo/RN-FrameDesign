@@ -1,44 +1,24 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet,View } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-
 import theme from '../../common/theme';
 import CategoryListView from './CategoryListView';
-
 import catetgoryGoodsData from '../../mock/catetgoryGoods';
+import NavBar from '../../common/NaviBar'
+
+import CatergoryContent from './CatergoryContent'
 
 export default class CategoryScreen extends Component {
-
-  // 头部导航
-  static navigationOptions = {
-    title: '分类',
-    headerTitleStyle: {
-      alignSelf: 'center',
-      fontSize: 15,
-      color: theme.fontColor
-    },
-    headerStyle: { height: 38, backgroundColor: theme.color }
-  };
 
   render() {
     const { navigation } = this.props;
     return (
-      <ScrollableTabView
-        style={styles.container}
-        tabBarBackgroundColor="white"
-        tabBarActiveTextColor={theme.color}
-        tabBarTextStyle={styles.tabBarText}
-        tabBarUnderlineStyle={styles.tabBarUnderline}
-        initialPage={0}>
-        {catetgoryGoodsData.map(value => (
-          <CategoryListView
-            tabLabel={value.title}
-            key={value.title}
-            itemDatas={value.detail}
-            navigation={navigation}
-          />
-        ))}
-      </ScrollableTabView>
+       <View style={styles.container}>
+         <NavBar
+           title={'购物车'}
+         />
+         <CatergoryContent/>
+       </View>
     );
   }
 }
@@ -47,13 +27,8 @@ export default class CategoryScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     backgroundColor: '#ffffff'
   },
-  tabBarText: {
-    fontSize: 14,
-    marginTop: 13
-  },
-  tabBarUnderline: {
-    backgroundColor: theme.color
-  }
+
 });
