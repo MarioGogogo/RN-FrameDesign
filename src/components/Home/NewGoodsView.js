@@ -1,23 +1,61 @@
-import React from 'react';
+import React,{PureComponent} from 'react';
 import { View, StyleSheet } from 'react-native';
 import {Actions, Scene, Router} from 'react-native-router-flux'
 import NewGoodsItem from './NewGoodsItem';
 import { width } from '../../common/screen';
+import RefreshListView, {RefreshState} from '../../common/refreshListView'
 
-const NewGoodsView = ({ itemDatas, navigation }) => (
-  <View style={styles.container}>
-    {itemDatas.map((value, index) => (
-      <NewGoodsItem
-        onPress={() => Actions.furitDetail({ value })}
-        name={value.name}
-        price={value.price}
-        image={value.image}
-        /* eslint-disable-next-line */
-        key={`list-${index}`}
-      />
-    ))}
-  </View>
-);
+
+export default class NewGoodsView extends PureComponent{
+   constructor(props) {
+     super(props)
+
+   }
+    //刷新
+   onHeaderRefresh=()=>{
+
+   }
+   //加载
+   onFooterRefresh=()=>{
+
+   }
+  renderCell=(value,index)=>{
+      console.log("TCL: NewGoodsView -> renderCell -> value", value)
+      return (
+        <NewGoodsItem
+         onPress={() => Actions.furitDetail({ value })}
+         name={value.name}
+         price={value.price}
+         image={value.image}
+         /* eslint-disable-next-line */
+         key={`list-${index}`}
+       />
+      )
+     }
+     render() {
+       const { itemDatas, navigation } = this.props
+       return (
+        <View style={styles.container}>
+        <RefreshListView
+           data={itemDatas}
+           keyExtractor={this.keyExtractor}
+           renderItem={this.renderCell}
+           refreshState={this.state.refreshState}
+           onHeaderRefresh={this.onHeaderRefresh}
+           onFooterRefresh={this.onFooterRefresh}
+           // 可选
+           footerRefreshingText='数据加载中'
+           footerFailureText='数据加载失败'
+           footerNoMoreDataText='已全部加载完成'
+           footerEmptyDataText='list'
+         />
+        </View>
+       );
+     }
+}
+
+
+
 
 
 

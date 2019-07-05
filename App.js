@@ -23,6 +23,8 @@ class App extends Component {
         <Scene key="register" component={Register} title="Register"/>
         <Scene key="furitDetail" hideNavBar component={FuritDetail} title="FuritDetail"/>
       </Scene>
+      {/* Loading和Toash全局加载 */}
+        
     </Router>
   }
 }

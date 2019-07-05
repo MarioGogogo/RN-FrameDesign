@@ -15,7 +15,7 @@ export default class CategoryScreen extends Component {
     return (
        <View style={styles.container}>
          <NavBar
-           title={'购物车'}
+           title={'分类'}
          />
          <CatergoryContent/>
        </View>
