@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import Line from './Line';
-
+import {Actions, Scene, Router} from 'react-native-router-flux'
 // const subList = [
 //   {
 //     title: '待付款',
@@ -29,6 +29,10 @@ const Order = props => (
       title="我的订单"
       subtitle="查看详情"
     />
+    <Line title="改变主题" 
+    subtitle="color"
+    onPress={() => goOrderScreen('colorTheme')}
+     />
     <Line title="我的收货地址" subtitle="查看" />
     <Line title="我的收藏" subtitle="♥" />
     <Line title="我的评价" subtitle="☀" />
@@ -40,7 +44,12 @@ const Order = props => (
 );
 
 const goOrderScreen = props => {
-      alert('跳转订单')
+
+   if(props === "colorTheme")
+   {
+     Actions.colorTheme()
+   }
+      // alert('跳转订单')
 };
 
 const styles = StyleSheet.create({

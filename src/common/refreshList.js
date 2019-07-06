@@ -76,6 +76,8 @@ class RefreshListView extends PureComponent {
     return (refreshState == RefreshState.Idle)
   }
 
+
+
   render() {
     console.log('[RefreshListView]  render  refreshState:' + this.props)
 

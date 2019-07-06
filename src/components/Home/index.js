@@ -30,7 +30,6 @@ export default class HomeScreen extends Component {
 
   render() {
       const {navigation} = this.props;
-      console.log(navigation);
       
         // 打乱数组
   const data = Disturb(newGoodsData.data);

@@ -17,12 +17,11 @@ import Mine from '../src/components/Mine'
 import Profile from './Profile'
 import Icon from 'react-native-vector-icons/dist/Ionicons';
 import Theme from './common/theme'
+import { inject, observer } from 'mobx-react';
 
-const color = Theme.color
-
-
+@inject('loginStore')
+@observer
 export default class MainPage extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -31,6 +30,8 @@ export default class MainPage extends Component {
   }
 
   render() {
+    const {loginStore} = this.props
+   
     return (
       <SafeAreaView style={styles.container}>
         <TabNavigator>
@@ -48,13 +49,13 @@ export default class MainPage extends Component {
             renderIcon={() => <Icon
               name="ios-home"
               size={30}   //图片大小
-              color={'#6792ff'}
+              color= {loginStore.getDefalutColor}
             />}
             //选中时图标
             renderSelectedIcon={() => <Icon
               name="ios-home"
               size={30}   //图片大小
-              color= {"#AB956D"}
+              color= {Theme.activeColor}
             />}
             //点击Event
             onPress={() => this.setState({ selectedTab: 'AppStore' })}>
@@ -69,12 +70,12 @@ export default class MainPage extends Component {
             renderIcon={() => <Icon
               name="ios-albums"
               size={30}   //图片大小
-              color={'#6792ff'}
+              color= {loginStore.defaultTheme}
             />}
             renderSelectedIcon={() => <Icon
               name="ios-albums"
               size={30}   //图片大小
-              color= {"#AB956D"}
+              color= {Theme.activeColor}
             />}
             onPress={() => this.setState({ selectedTab: 'Log' })}>
             <Category/>
@@ -87,30 +88,30 @@ export default class MainPage extends Component {
             renderIcon={() => <Icon
               name="ios-heart"
               size={30}   //图片大小
-              color={'#6792ff'}
+              color= {loginStore.defaultTheme}
             />}
             renderSelectedIcon={() => <Icon
               name="ios-heart"
               size={30}   //图片大小
-              color= {"#AB956D"}
+              color= {Theme.activeColor}
             />}
             onPress={() => this.setState({ selectedTab: 'Device' })}>
             <Order/>
           </TabNavigator.Item>
           <TabNavigator.Item
             selected={this.state.selectedTab === 'User'}
-            title="User"
+            title="我的"
             titleStyle={styles.tabText}
             selectedTitleStyle={styles.selectedTabText}
             renderIcon={() => <Icon
-              name="我的"
+              name="ios-person"
               size={30}   //图片大小
-              color={'#6792ff'}
+              color= {loginStore.defaultTheme}
             />}
             renderSelectedIcon={() => <Icon
               name="ios-person"
               size={30}   //图片大小
-              color= {"#AB956D"}
+              color= {Theme.activeColor}
             />}
             onPress={() => this.setState({ selectedTab: 'User' })}>
             <Mine/>
