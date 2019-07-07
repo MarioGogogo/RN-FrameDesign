@@ -6,6 +6,7 @@ import { width } from "../../common/screen";
 import HomeSwiper from "./HomeSwiper";
 import ThemeLine from './ThemeLine';
 import NewGoodsView from './NewGoodsView';
+import Search from '../../common/Search'
 
 // 引入mock数据
 import newGoodsData from '../../mock/newGoods';
@@ -35,6 +36,7 @@ export default class HomeScreen extends Component {
   const data = Disturb(newGoodsData.data);
     return (
       <ScrollView style={styles.container}>
+        <Search/>
         <View style={styles.swiper}>
         <HomeSwiper imageSources={imageSources} />
         </View>
