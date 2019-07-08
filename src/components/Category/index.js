@@ -5,7 +5,6 @@ import theme from '../../common/theme';
 import CategoryListView from './CategoryListView';
 import catetgoryGoodsData from '../../mock/catetgoryGoods';
 import NavBar from '../../common/NaviBar'
-
 import CatergoryContent from './CatergoryContent'
 
 export default class CategoryScreen extends Component {

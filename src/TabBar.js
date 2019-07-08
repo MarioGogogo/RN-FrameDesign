@@ -19,6 +19,7 @@ import Icon from 'react-native-vector-icons/dist/Ionicons';
 import Theme from './common/theme'
 import { inject, observer } from 'mobx-react';
 
+
 @inject('loginStore')
 @observer
 export default class MainPage extends Component {
@@ -31,7 +32,6 @@ export default class MainPage extends Component {
 
   render() {
     const {loginStore} = this.props
-   
     return (
       <SafeAreaView style={styles.container}>
         <TabNavigator>

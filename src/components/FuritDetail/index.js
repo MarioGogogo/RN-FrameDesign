@@ -16,7 +16,7 @@ import Toast from 'react-native-easy-toast';
 import NavBar from '../../common/NaviBar'
 import theme from '../../common/theme';
 // import MessageView from './MessageView';
-import {Actions, Scene, Router} from 'react-native-router-flux'
+import {Actions} from 'react-native-router-flux'
 
 export default class ItemDetail extends Component {
 
@@ -107,11 +107,11 @@ export default class ItemDetail extends Component {
   // }
 
   render() {
-    // console.log(this.props.navigation.state.params)
+    // console.log(this.props.navigation.state.params) //普通路由传值
+    console.log(this.props.value)   //获取 路由传过来的值
     const { num, bounceValue } = this.state;
-    const { navigation } = this.props;
-    const { value } = navigation.state.params;
-    const { name, price, image } = value;
+
+    const { name, price, image } = this.props.value;
     const count = this.cartCount;
     const refreshCon = (
       <RefreshControl
@@ -126,11 +126,12 @@ export default class ItemDetail extends Component {
     return (
       <View>
         <NavBar title={"商品详情"} onBack={()=>{Actions.pop()}}/>
+        <View><Text>123</Text></View>
         <ScrollView style={styles.container} refreshControl={refreshCon}>
           <View style={styles.topWrapper}>
-            <View style={styles.imgWrapper}>
-              <Image source={image} style={styles.image} />
-            </View>
+            {/*<View style={styles.imgWrapper}>*/}
+              {/*<Image source={image} style={styles.image} />*/}
+            {/*</View>*/}
             <View style={styles.chooseLine}>
               <Text style={styles.number}>数量 {num}</Text>
               <TouchableOpacity style={styles.button} onPress={this.addNum}>
@@ -202,7 +203,7 @@ export default class ItemDetail extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    // flexDirection: 'column'
     // backgroundColor: '#ffffff'
     // backgroundColor: '#F5F6F5'
   },

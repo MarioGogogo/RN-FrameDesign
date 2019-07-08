@@ -44,8 +44,12 @@ class NewGoodsView extends Component {
       />
     );
   };
-  onHeaderRefresh = () => {};
-  onFooterRefresh = () => {};
+  onHeaderRefresh = () => {
+    console.log('onHeaderRefresh')
+  };
+  onFooterRefresh = () => {
+    console.log('onFooterRefresh')
+  };
   render() {
     const { itemDatas, navigation } = this.props;
     return (

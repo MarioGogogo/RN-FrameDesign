@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import {StyleSheet, View, ScrollView, StatusBar} from "react-native";
 
 import { width } from "../../common/screen";
 
@@ -31,11 +31,12 @@ export default class HomeScreen extends Component {
 
   render() {
       const {navigation} = this.props;
-      
+
         // 打乱数组
   const data = Disturb(newGoodsData.data);
     return (
       <ScrollView style={styles.container}>
+        <StatusBar hidden={false} />
         <Search/>
         <View style={styles.swiper}>
         <HomeSwiper imageSources={imageSources} />
