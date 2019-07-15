@@ -119,7 +119,6 @@ class RefreshListView extends PureComponent {
           console.log('---onMomentumScrollBegin-----')
         }}
         renderItem={renderItem}
-
         {...rest}
       />
     )

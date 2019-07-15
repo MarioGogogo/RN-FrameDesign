@@ -8,7 +8,7 @@ import MainPage from "./src/TabBar";
 import FuritDetail from './src/components/FuritDetail'
 import ColorTheme from './src/common/ColorTheme'
 import SplashView from './src/common/SplashView'
-
+import Order from './src/components/Order';
 
 class App extends Component {
   render() {
@@ -28,8 +28,9 @@ class App extends Component {
           hideNavBar
           key="login"
           component={Login} title="Login"/>
-        <Scene key="register" component={Register} title="Register"/>
+        <Scene key="register"    hideNavBar component={Register} title="Register"/>
         <Scene key="furitDetail" hideNavBar component={FuritDetail} title="FuritDetail"/>
+        <Scene key="order"    hideNavBar component={Order} title="Order"/>
         <Scene key="colorTheme" hideNavBar component={ColorTheme} title="ColorTheme"/>
       </Scene>
       {/* Loading和Toash全局加载 */}

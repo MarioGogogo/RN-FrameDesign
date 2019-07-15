@@ -35,7 +35,7 @@ export default class HomeScreen extends Component {
         // 打乱数组
   const data = Disturb(newGoodsData.data);
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} scrollEnabled={false}>
         <StatusBar hidden={false} />
         <Search/>
         <View style={styles.swiper}>

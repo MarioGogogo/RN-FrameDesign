@@ -4,36 +4,39 @@ import { observer, inject } from "mobx-react";
 import { computed } from "mobx";
 import OrderList from "./OrderList";
 import NaviBar from '../../common/NaviBar'
-import {Actions, Scene, Router} from 'react-native-router-flux'
+import {Actions } from 'react-native-router-flux'
 
 
+
+@inject("cartStore")
+@observer
  class OrderScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       OrderData: []
     };
+
   }
 
-  // 解决安卓机标题偏右问题
-  static navigationOptions = {
-    headerRight: <View />
-  };
-
+ 
   renderItem = ({ item }) => <OrderList item={item} />;
 
   keyExtractor = (item, index) => `item-${index}`;
 
 
   render() {
+    const {cartStore,from} = this.props;
+
     return (
       <SafeAreaView style={styles.container}>
         <NaviBar
           title={'购物车'}
+          onBack={from && from === "detail" ? ()=>{Actions.pop()} :false }
         />
-        {this.state.OrderData.length ? (
+        {cartStore.getCartLength ? (
           <FlatList
-            data={this.OrderData}
+            data={cartStore.foodsList.slice()}
             renderItem={this.renderItem}
             keyExtractor={this.keyExtractor}
           />

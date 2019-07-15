@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Platform, TextInput,TouchableOpacity } from "react-native";
+import { View, StyleSheet, Platform, TextInput,TouchableOpacity,Text } from "react-native";
 import Icon from "react-native-vector-icons/dist/Ionicons";
 import Theme from "./theme";
 import { width } from "./screen";
@@ -7,6 +7,9 @@ import { width } from "./screen";
 export default class Search extends Component {
   onClickScanner=()=>{
      alert('打开二维码扫描')
+  }
+  onClickMesg=()=>{
+    alert('打开消息')
   }
   render() {
     return (
@@ -28,7 +31,14 @@ export default class Search extends Component {
             <TextInput style={styles.text} placeholder="输入水果名" editable={false} />
           </View>
         </View>
-        <View style={styles.empty} />
+        <TouchableOpacity style={styles.scanner} onPress={this.onClickMesg}>
+          <Icon
+            name="ios-megaphone"
+            size={30} //图片大小
+            color={Theme.fontColor}
+          />
+          <Text>消息</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -57,11 +67,14 @@ const styles = StyleSheet.create({
   searchText: {
     flexDirection: "row",
     width: "90%",
-    height: 40,
+    height: 30,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#fff",
     borderRadius: 10
+  },
+  text:{
+    height: Platform.OS === "ios" ? 44 : 56, //ios原生导航高度是44，android是56
   },
   empty: {
     width: 50

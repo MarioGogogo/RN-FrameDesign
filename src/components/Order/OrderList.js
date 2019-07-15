@@ -3,14 +3,19 @@ import { View, Text, StyleSheet } from 'react-native';
 import formatTime from '../../common/formatTime';
 
 const OrderList = ({ item }) => {
-  const date = formatTime(item.date);
+  console.log('item',item);
+  console.log(item.name,item.count);
+  
+  
+  // const date = formatTime(item.date);
+  const date = "1998-12-12"
   return (
     <View style={styles.container}>
       <View style={styles.dateLine}>
         <Text>{date}</Text>
       </View>
       <View style={styles.goodsContainer}>
-        {item.data.map((e) => (
+        {item.map((e) => (
           <View key={e.name}>
             <Text>{`${e.name}  x${e.count}/500g`}</Text>
           </View>
