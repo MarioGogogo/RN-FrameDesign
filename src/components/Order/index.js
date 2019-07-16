@@ -19,8 +19,12 @@ import {Actions } from 'react-native-router-flux'
 
   }
 
- 
+  
   renderItem = ({ item }) => <OrderList item={item} />;
+
+  _createListFooter = () =>{
+    
+  }
 
   keyExtractor = (item, index) => `item-${index}`;
 
@@ -39,6 +43,7 @@ import {Actions } from 'react-native-router-flux'
             data={cartStore.foodsList.slice()}
             renderItem={this.renderItem}
             keyExtractor={this.keyExtractor}
+            ListFooterComponent={this._createListFooter}
           />
         ) : (
           <View

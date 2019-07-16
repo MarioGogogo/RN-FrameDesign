@@ -18,10 +18,26 @@ class CartStore {
        this.foodsList.push(data)
   }
 
-
-
-
-
-
 }
 export default CartStore;
+
+
+// foodsList的格式应该是 
+// [{
+//    date:'234324234234',
+//    data:{
+//      "name":"jasc",
+//      "num":2,
+//      "price":99
+//    }
+
+// },
+// {
+//   date:'234324234234',
+//   data:{
+//     "name":"jasc",
+//     "num":2,
+//     "price":101
+//   }
+
+// }]

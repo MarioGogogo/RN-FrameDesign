@@ -15,7 +15,7 @@ const OrderList = ({ item }) => {
         <Text>{date}</Text>
       </View>
       <View style={styles.goodsContainer}>
-        {item.map((e) => (
+        {item.data.map((e) => (
           <View key={e.name}>
             <Text>{`${e.name}  x${e.count}/500g`}</Text>
           </View>

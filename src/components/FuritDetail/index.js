@@ -93,14 +93,16 @@ export default class ItemDetail extends Component {
     const { loginStore, cartStore } = this.props;
     const itemData = value;
     // 找出索引
-    const index = cartStore.foodsList.findIndex(e => e.name === name);
+    const index = cartStore.foodsList.findIndex(e => e.data.name === name);
   
     // 不存在
     if (index === -1) {
+      itemData.date = new Date().getTime()
+      itemData.data = {...value}
       // 增加需要用到的字段
       itemData.count = num;
       itemData.isSelected = true;
-      cartStore.addFoodsList(value)
+      cartStore.addFoodsList(itemData)
     } else {
       // 增加对应name的count
       cartStore.foodsList[index].count += num;
