@@ -15,5 +15,4 @@ const stores = {
   cartStore
 }
 
-
 export default stores
